@@ -1,0 +1,97 @@
+﻿<!-- nav -->
+<!-- <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
+</nav> -->
+
+<div class="wrapper" *ngIf="user">
+    <!-- Start Header -->
+    <header class="header clearfix">
+        <!-- Nav Icon -->
+        <button class="nav-icon">
+            <span class="one"></span>
+            <span class="two"></span>
+            <span class="three"></span>
+        </button>
+
+        <!-- Start Logo -->
+        <a href="#" title="KEMS" class="">
+            <img src="assets/images/logo.png" alt="KEMS">
+        </a>
+        <!-- End Logo -->
+
+        <!-- Start Header Right Part -->
+        <ul class="header-right-menu">
+            <li class="dropdown notification-dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/images/icon-bell.svg" alt=""
+                        class="icon"><em class="notification">4</em></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#" title="Notification 1">Notification 1</a>
+                    <a class="dropdown-item" href="#" title="Notification 2">Notification 2</a>
+                    <a class="dropdown-item" href="#" title="Notification 3">Notification 3</a>
+                    <a class="dropdown-item" href="#" title="Notification 4">Notification 4</a>
+                    <a class="dropdown-item" href="#" title="Notification 5">Notification 5</a>
+                </div>
+            </li>
+            <li class="dropdown profile-dropdown">
+                <a href="#" class="dropdown-toggle has-arrow" data-toggle="dropdown"><img
+                        src="assets/images/profile-icon.jpg" alt="" class="icon round-img"> <img
+                        src="assets/images/dropdown-arrow.svg" alt="" class="arrow"></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <p class="user-name"><span>Welcome,</span>Johnathan Marshall</p>
+                    <a class="dropdown-item"  title="My Profile">My
+                        Profile</a>
+                    <a class="dropdown-item"   title="Logout">Change
+                        Password</a>
+                    <a class="dropdown-item" (click)="logout()" title="Logout">Logout</a>
+                </div>
+            </li>
+        </ul>
+        <!-- End Header Right Part -->
+    </header>
+    <!-- End Header -->
+    <nav class="main-navigation" only-arrow-click="false" mobile-menu="1199" animation-speed="300"
+        scroll-bg="rgba(0,0,0,0.1)" scroll-color="rgba(0,0,0,0.15)" scroll-width="3">
+        <ul>
+            <li id="lidashboard">
+                <a   title="Dashboard" routerLink="/" routerLinkActive="open"
+                [routerLinkActiveOptions]="{exact: true}"><i class="icon"><img
+                            src="assets/images/icon-dashboard.svg" alt=""></i>Dashboard</a>
+            </li>
+            <li id="liemployee" class="has-menu">
+                <a href="#">
+                    <i class="icon">
+                        <img src="assets/images/icon-cart.svg" alt="">
+                    </i>
+                    Employee
+                <i class="arrow-icon"></i></a>
+                <ul class="treeview-menu" style="display: none;">
+                            <li id="liemployeeattendance"><a href="/employee/employee-attendance">Attendance</a></li>
+                            <li id="liemployeeworksheet"><a href="/employee/worksheet">Worksheet</a></li>
+                            <li id="liemployeeleaveapplication"><a href="/administrator/leave-application">Leave Application</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <alert></alert>
+        <router-outlet></router-outlet>
+    </main>
+    <!-- End Main Content -->
+</div>
+
+<!-- Start Footer -->
+<footer *ngIf="user" class="footer">Copyright &copy; @DateTime.Now.IndiaTime().Year. All rights reserved.</footer>
+
+
+<!-- main app container -->
+ 
+    <alert *ngIf="!user"></alert>
+    <router-outlet *ngIf="!user"></router-outlet>
+ 
