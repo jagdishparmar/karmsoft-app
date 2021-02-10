@@ -25,9 +25,9 @@ export class AccountService {
         return this.userSubject.value;
     }
 
-    login(username, password) { 
+    login(username, password) {
         return this.http.post<any>(`${environment.apiUrl}/login`, { "Email": username, "Password": password }).pipe(map(user => {
-            debugger;
+          
             localStorage.setItem('user', JSON.stringify(user[0]));
             this.userSubject.next(user[0]);
             return user[0];
@@ -41,8 +41,9 @@ export class AccountService {
         this.router.navigate(['/account/login']);
     }
 
-    register(user: User) {
-        return this.http.post(`${environment.apiUrl}/users/register`, user);
+    forgotPassword(user: User) { 
+        var response=this.http.post(`${environment.apiUrl}/forgot-password`, { "Email": user.email });
+        return response;
     }
 
     getAll() {

@@ -43,9 +43,9 @@
                         src="assets/images/dropdown-arrow.svg" alt="" class="arrow"></a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <p class="user-name"><span>Welcome,</span>Johnathan Marshall</p>
-                    <a class="dropdown-item"  title="My Profile">My
+                    <a class="dropdown-item" title="My Profile">My
                         Profile</a>
-                    <a class="dropdown-item"   title="Logout">Change
+                    <a class="dropdown-item" title="Logout">Change
                         Password</a>
                     <a class="dropdown-item" (click)="logout()" title="Logout">Logout</a>
                 </div>
@@ -58,8 +58,8 @@
         scroll-bg="rgba(0,0,0,0.1)" scroll-color="rgba(0,0,0,0.15)" scroll-width="3">
         <ul>
             <li id="lidashboard">
-                <a   title="Dashboard" routerLink="/" routerLinkActive="open"
-                [routerLinkActiveOptions]="{exact: true}"><i class="icon"><img
+                <a title="Dashboard" routerLink="/" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}"><i class="icon"><img
                             src="assets/images/icon-dashboard.svg" alt=""></i>Dashboard</a>
             </li>
             <li id="liemployee" class="has-menu">
@@ -68,11 +68,12 @@
                         <img src="assets/images/icon-cart.svg" alt="">
                     </i>
                     Employee
-                <i class="arrow-icon"></i></a>
+                    <i class="arrow-icon"></i></a>
                 <ul class="treeview-menu" style="display: none;">
-                            <li id="liemployeeattendance"><a href="/employee/employee-attendance">Attendance</a></li>
-                            <li id="liemployeeworksheet"><a href="/employee/worksheet">Worksheet</a></li>
-                            <li id="liemployeeleaveapplication"><a href="/administrator/leave-application">Leave Application</a></li>
+                    <li id="liemployeeattendance"><a href="/employee/employee-attendance">Attendance</a></li>
+                    <li id="liemployeeworksheet"><a href="/employee/worksheet">Worksheet</a></li>
+                    <li id="liemployeeleaveapplication"><a href="/administrator/leave-application">Leave Application</a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -91,7 +92,6 @@
 
 
 <!-- main app container -->
- 
-    <alert *ngIf="!user"></alert>
-    <router-outlet *ngIf="!user"></router-outlet>
- 
+
+<alert *ngIf="!user"></alert>
+<router-outlet *ngIf="!user"></router-outlet>
